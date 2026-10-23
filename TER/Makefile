@@ -4,6 +4,8 @@ EXE = exec
 
 all : $(EXE)
 
+blalalala
+
 $(EXE) : main.o donnees_mod.o precision_mod.o
 	$(F90) $(FFLAGS) -o $(EXE) $^
 
