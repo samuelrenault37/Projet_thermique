@@ -1,5 +1,5 @@
 F90 = gfortran
-FFLAGS = -Wall -Wextra -g -fcheck=all -ffree-line-length-none -ffpe-trap=invalid,zero,overflow -fbounds-check
+FFLAGS = -Wall -Wextra -g -fcheck=all -ffree-line-length-none -ffpe-trap=invalid,zero,overflow -fbounds-check 
 EXE = exec
 
 all : $(EXE)
