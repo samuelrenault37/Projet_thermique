@@ -3,7 +3,8 @@ module donnees
     use precision
     
     implicit none
-    integer ::n
+    integer                           ::n , ID
+    real,dimension(:),allocatable     :: x , y
     
 contains
 
@@ -16,9 +17,28 @@ subroutine init_donnees()
 end subroutine init_donnees
 
 subroutine init_point()
+integer :: i 
+    OPEN(1,file='coord.dat')
     
+    do i = 1, n 
+        READ (1,*) ID , x(i) , y(i)
+    end do 
+    
+    CLOSE(1)
 
 end subroutine init_point
+
+subroutine init_tab()
+
+    allocate(x(n),y(n))
+
+end subroutine init_tab
+
+
+subroutine dealocate_all
+
+    deallocate(x,y)
+end subroutine dealocate_all
 
 
     
