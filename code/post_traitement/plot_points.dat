@@ -1,0 +1,1 @@
+plot "../data/generated_points.dat" u 2:3 title "points générés"
