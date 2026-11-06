@@ -18,7 +18,7 @@ end subroutine init_donnees
 
 subroutine init_point()
 integer :: i 
-    OPEN(1,file='coord.dat')
+    OPEN(1,file="../data/generated_points.dat")
     
     do i = 1, n 
         READ (1,*) ID , x(i) , y(i)
