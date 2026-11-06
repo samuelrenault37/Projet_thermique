@@ -23,7 +23,7 @@ program points_generation
     contains
     
     subroutine rectangular_area()
-        open (unit = 1, file = "../data/generated_points")
+        open (unit = 1, file = "../data/generated_points.dat")
         do i = 1,N
             
             x = (rand(0)*(b-a)) + a
