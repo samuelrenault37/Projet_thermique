@@ -9,29 +9,35 @@ module function_mod
     
     subroutine init()
 
-        type(triangles_t) :: triangles
-        type(vertices_t) :: vertices
+        call init_mesh()
         
-        OPEN(1,file="../data/generated_points.dat")
-        READ (1,*) nb_vertices
-
-        mesh%triangles = triangles
-        mesh%vertices = vertices
-
-        ! Initialize the number of tetrahedra and vertices
+        call init_vertices()
+    
         mesh%triangles%num = 0
-        mesh%vertices%num = 0
-        mesh%triangles%allocated_num = nb_vertices
-        mesh%vertices%allocated_num = nb_vertices
-        
-        ! Allocate memory for the tetrahedra and vertices arrays
+
         allocate(mesh%triangles%vertex_ID(nb_vertices))
         allocate(mesh%triangles%neighbor_ID(nb_vertices))
         allocate(mesh%triangles%sub_determinant(nb_vertices))
-        
-        allocate(mesh%vertices%vertex(nb_vertices))
-        
+        mesh%triangles%allocated_num = nb_vertices
+
     end subroutine init
+    
+    subroutine init_vertices()
+        integer :: i, ID
+
+        open(1,file="../data/generated_points.dat")
+        read (1,*) nb_vertices
+        mesh%vertices%num = nb_vertices
+
+        allocate(mesh%vertices%vertex(nb_vertices))
+        mesh%vertices%allocated_num = nb_vertices
+        
+        do i = 1, nb_vertices
+            read (1,*) ID, mesh%vertices%vertex(ID)%coord(1), mesh%vertices%vertex(ID)%coord(2)
+        end do
+        
+        close(1)
+    end subroutine init_vertices
     
     subroutine reallocate_tab(tab, new_size)
         integer, allocatable, intent(inout) :: tab(:)

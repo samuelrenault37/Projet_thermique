@@ -17,22 +17,28 @@ module donnees_mod
     integer :: num  ! number of triangles
     integer :: allocated_num    ! capacity [in triangles]
     end type triangles_t
-
+    
     type vertices_t
     type(point_2D_t), dimension(:), allocatable :: vertex
     integer :: num  ! number of vertices
     integer :: allocated_num    ! capacity [in vertices]
     end type vertices_t
-
+    
     type mesh_t
     type(triangles_t) :: triangles
     type(vertices_t) :: vertices
     end type mesh_t
-
+    
     type(mesh_t) :: mesh
-
+    type(triangles_t) :: triangles
+    type(vertices_t) :: vertices
+    
     contains
     
+    subroutine init_mesh()
+        mesh%triangles = triangles
+        mesh%vertices = vertices
+    end subroutine init_mesh
     
     
 end module donnees_mod
