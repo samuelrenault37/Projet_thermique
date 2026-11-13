@@ -23,7 +23,7 @@ module donnees
     type vertices
     type(point_2D), dimension(:), allocatable :: vertex
     integer :: num  ! number of vertices
-    integer :: allocated_num    ! capacity [in vertices
+    integer :: allocated_num    ! capacity [in vertices]
     end type vertices
 
     type mesh
@@ -63,6 +63,7 @@ module donnees
     subroutine dealocate_all
         
         deallocate(x,y)
+
     end subroutine dealocate_all
     
     
