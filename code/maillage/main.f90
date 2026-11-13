@@ -1,11 +1,9 @@
 program main
 
-    use precision
-    use donnees
+    use function_mod
+    use precision_mod
+    use donnees_mod
 
     implicit none
-
-    call init_donnees
-    !print*,n
     
 end program main

@@ -1,4 +1,4 @@
-module precision
+module precision_mod
 
     implicit none
     integer, parameter :: pr = 8
@@ -7,4 +7,4 @@ module precision
     
 contains
     
-end module precision
+end module precision_mod
