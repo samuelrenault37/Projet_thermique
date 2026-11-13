@@ -24,6 +24,7 @@ program points_generation
     
     subroutine rectangular_area()
         open (unit = 1, file = "../data/generated_points.dat")
+        write(1,*) N
         do i = 1,N
             
             x = (rand(0)*(b-a)) + a
