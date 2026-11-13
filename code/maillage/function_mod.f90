@@ -9,7 +9,7 @@ module function_mod
     
     subroutine init()
 
-        call init_mesh()
+       ! call init_mesh()
         
         call init_vertices()
     
@@ -22,6 +22,9 @@ module function_mod
 
     end subroutine init
     
+    ! initialise le contenu de vertices
+    ! c'est ici que le tri se fera si on peut l'implementer.
+    ! pour le moment on se contente de lire les points dans l'ordre du fichier 
     subroutine init_vertices()
         integer :: i, ID
 
@@ -34,6 +37,7 @@ module function_mod
         
         do i = 1, nb_vertices
             read (1,*) ID, mesh%vertices%vertex(ID)%coord(1), mesh%vertices%vertex(ID)%coord(2)
+            mesh%vertices%vertex(ID)%padding = 0 ! dans le doute on initialise à zéro
         end do
         
         close(1)

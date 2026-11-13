@@ -10,6 +10,6 @@ program main
 
     print *, "Number of vertices: ", mesh%vertices%num
     print *, "Number of triangles: ", mesh%triangles%num
-    print *, "some coordinates of vertices:", mesh%vertices%vertex(3)%coord
+    print *, "some coordinates of vertices:", mesh%vertices%vertex(3)
     
 end program main

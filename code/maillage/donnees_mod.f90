@@ -30,15 +30,7 @@ module donnees_mod
     end type mesh_t
     
     type(mesh_t) :: mesh
-    type(triangles_t) :: triangles
-    type(vertices_t) :: vertices
     
     contains
-    
-    subroutine init_mesh()
-        mesh%triangles = triangles
-        mesh%vertices = vertices
-    end subroutine init_mesh
-    
     
 end module donnees_mod
